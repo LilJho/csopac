@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+    
+{% block content %}
+<section id="faq" class="faq section-bg">
+    <div class="container">
+    <div class="search-header">
+        <form action="{% url 'ThesisList' %}" method="get">
+            {% csrf_token %}
+            <input type="text" name="q" class="form-control" placeholder="Type something to start searching..." required>
+          </form>
+          <br>
+          
+        <h1>List of Theses and Capstone Projects </h1><hr>
+    </div>
+    <div class="thesis-list">
+        {% for object in object_list %}
+            <h5>
+                <a href="{{ thesis.get_absolute_url }}">{{ object.title }}</a>
+            </h5>
+
+            <p class="date">
+            Posted {{ object.publish|naturaltime }} by {{ object.posted_by }}
+            </p>
+            {{ object.abstract|truncatewords:40|linebreaks }}
+        {% empty %}    
+            <p>No record found.</p>
+        {% endfor %}
+    </div>
+    <br>
+    {% include 'includes/pagination.html' %}
+</div>
+</section>
+{% endblock %}
