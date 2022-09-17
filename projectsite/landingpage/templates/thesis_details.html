@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block content %}
+<section id="faq" class="faq section-bg">
+    <div class="container">
+        <h2 class="title">
+            {{ thesis.title }}
+        </h2>
+        <h6 class="meta">
+            <b>Author(s):</b> {{ thesis.authors }}
+        </h6>
+        <h6 class="meta">
+            <b>Published:</b> {{ thesis.publish }} by {{ thesis.posted_by }}
+        </h6>
+        {% if thesis.adviser.lastname or thesis.adviser.first_name %}
+        <h6 class="meta"><b>Adviser: </b><a href="#">{{thesis.adviser.last_name }}, {{ thesis.adviser.first_name }}</a>
+        </h6>
+        {% else %}
+        <h6 class="meta"><b>Adviser: </b> <a href="#">{{thesis.adviser}}</a></h6>
+        {% endif %}
+        <br>
+        <h3>Abstract</h3>
+        <p class="justify">
+            {{ thesis.abstract }}
+        </p>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -17,7 +17,7 @@
     <div class="thesis-list">
         {% for object in object_list %}
             <h5>
-                <a href="{{ thesis.get_absolute_url }}">{{ object.title }}</a>
+                <a href="thesis_list/{{ object.id }}">{{ object.title }}</a>
             </h5>
 
             <p class="date">

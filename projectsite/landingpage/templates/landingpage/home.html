@@ -7,7 +7,7 @@
 <section id="hero">
   <div class="hero-container">
     <h1>Welcome to College of Sciences Online Public Access Catalog</h2>
-    <h6>Search the 1,234,567 electronic theses and capstone projects contained in the csopac archive:</h6>
+    <h6>Search the {% if thesis_count != empty %}{{ thesis_count }} {% else %} 0 {% endif %} electronic theses and capstone projects contained in the csopac archive:</h6>
     <div class="col-lg-5 col-md-9">
       <form action="{% url 'ThesisList' %}" method="get">
         {% csrf_token %}
@@ -47,12 +47,12 @@
         <div class="info">
           <div>
             <i class="bi bi-geo-alt"></i>
-            <p>A108 Adam Street<br>New York, NY 535022</p>
+            <p>Palawan State University<br>Tiniguiban Heights, Puerto Princesa City</p>
           </div>
 
           <div>
             <i class="bi bi-envelope"></i>
-            <p>info@example.com</p>
+            <p>cs@psu.palawan.edu.ph</p>
           </div>
 
           <div>
