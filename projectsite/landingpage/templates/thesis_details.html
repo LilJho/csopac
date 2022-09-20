@@ -5,6 +5,15 @@
 {% block content %}
 <section id="faq" class="faq section-bg">
     <div class="container">
+    <div class="search-header">
+        <form action="{% url 'ThesisList' %}" method="get">
+            {% csrf_token %}
+            <input type="text" name="q" class="form-control" placeholder="Type something to start searching..." required>
+          </form>
+          <br>
+    </div>
+    </div>
+    <div class="container">
         <h2 class="title">
             {{ thesis.title }}
         </h2>
@@ -15,7 +24,7 @@
             <b>Published:</b> {{ thesis.publish }} by {{ thesis.posted_by }}
         </h6>
         {% if thesis.adviser.lastname or thesis.adviser.first_name %}
-        <h6 class="meta"><b>Adviser: </b><a href="#">{{thesis.adviser.last_name }}, {{ thesis.adviser.first_name }}</a>
+        <h6 class="meta"><b>Adviser: </b><a href="#">{{thesis.adviser.lastname }}, {{ thesis.adviser.firstname }} {{thesis.adviser.middlename}}</a>
         </h6>
         {% else %}
         <h6 class="meta"><b>Adviser: </b> <a href="#">{{thesis.adviser}}</a></h6>
@@ -30,7 +39,7 @@
             <div class="similar-thesis">
                 {% for thesis in similar_thesis %}
                     <p>
-                        <a href="thesis_list/{{ object.id }}">{{ thesis.title }} {% if not forloop.last %}, {% endif %}</a>
+                        <a href="../../thesis_list/{{ thesis.id }}">{{ thesis.title }} {% if not forloop.last %}, {% endif %}</a>
                     </p>
                 {% empty %}
                     There are no similar thesis yet.
