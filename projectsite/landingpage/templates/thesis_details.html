@@ -25,6 +25,17 @@
         <p class="justify">
             {{ thesis.abstract }}
         </p>
+        <br>
+        <h3>Similar Thesis</h3>
+            <div class="similar-thesis">
+                {% for thesis in similar_thesis %}
+                    <p>
+                        <a href="thesis_list/{{ object.id }}">{{ thesis.title }} {% if not forloop.last %}, {% endif %}</a>
+                    </p>
+                {% empty %}
+                    There are no similar thesis yet.
+                {% endfor %}
+            </div>
 
     </div>
 </section>

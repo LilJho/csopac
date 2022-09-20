@@ -10,6 +10,14 @@ class PublishedManager(models.Manager):
         return super(PublishedManager,
                     self).get_queryset()\
                          .filter(status='published')
+class Adviser(models.Model):
+    lastname = models.CharField(max_length=250)
+    firstname = models.CharField(max_length=250)
+    middlename = models.CharField(max_length=250, null=True, blank=True)
+    
+    def __str__(self):
+        return '{} {} {}'.format(self.firstname, self.middlename, self.lastname)    
+
 
 class Thesis(models.Model):
     STATUS_CHOICES = (
@@ -24,9 +32,7 @@ class Thesis(models.Model):
     posted_by = models.ForeignKey(User,null=True,blank=True,
                 on_delete=models.SET_NULL,
                 related_name='posts')
-    adviser = models.ForeignKey(User, null=True, blank=True,
-            on_delete=models.SET_NULL,
-            related_name='advisees')
+    adviser = models.ForeignKey(Adviser, null=True, blank=True, on_delete=models.SET_NULL)
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from thesis.models import Thesis , Comment
+from thesis.models import Thesis , Comment, Adviser
 
 @admin.register(Thesis)
 class ThesisAdmin(admin.ModelAdmin):
@@ -22,3 +22,8 @@ class CommentAdmin(admin.ModelAdmin):
     list_filter = ('active', 'created', 'updated')
     list_editable = ('active',)
     search_fields = ('body',)
+
+@admin.register(Adviser)
+class AdviserAdmin(admin.ModelAdmin):
+    list_display = ('lastname', 'firstname','middlename')
+    search_fields = ('lastname','firstname')

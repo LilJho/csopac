@@ -3,7 +3,7 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView
 
 from thesis.models import Thesis, PublishedManager, Comment
-from django.db.models import Q
+from django.db.models import Q, Count
 from django.shortcuts import render, redirect
 
 # @method_decorator(login_required, name='dispatch')
@@ -39,9 +39,14 @@ class ThesisList(ListView):
 
 def thesis_detail(request, id):
     thesis = Thesis.objects.get(id=id)
+    thesis_tags_ids = thesis.tags.values_list('id', flat=True)
+    similar_thesis = Thesis.published.filter(tags__in=thesis_tags_ids)\
+                                     .exclude(id=thesis.id) 
+    similar_thesis = similar_thesis.annotate(same_tags=Count('tags'))\
+                                   .order_by('-same_tags', '-publish')[:4]
     return render(request,
           'thesis_details.html',
-         {'thesis': thesis})
+         {'thesis': thesis,'similar_thesis': similar_thesis})
 
 
 
