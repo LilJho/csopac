@@ -6,8 +6,8 @@
 <!-- ======= Hero Section ======= -->
 <section id="hero">
   <div class="hero-container">
-    <h1>Welcome to College of Sciences Online Public Access Catalog</h2>
-    <h6>Search the {% if thesis_count != empty %}{{ thesis_count }} {% else %} 0 {% endif %} electronic theses and capstone projects contained in the csopac archive:</h6>
+    <h1>Welcome to College of Sciences Online Public Access Catalog</h1>
+    Search the {% if thesis_count != empty %}{{ thesis_count }} {% else %} 0 {% endif %} electronic theses and capstone projects contained in the csopac archive:
     <div class="col-lg-5 col-md-9">
       <form action="{% url 'ThesisList' %}" method="get">
         {% csrf_token %}
@@ -18,79 +18,8 @@
   </div>
 </section>
 <!-- #hero -->
-<br><br>
-<!-- ======= Contact Us Section ======= -->
-<section id="contact" class="contact section-bg">
-  <div class="container">
+<br><br><br>
 
-    <div class="section-title">
-      <h2>Contact Us</h2>
-      <p>This page contains all the abstract of undergraduate theses in the College of Sciences</p><br>
-      <p>BS in Biology major in Medical Biology| BS in Environmental Science| BS in Computer Science| BS in Information Technology</p>
-    </div>
-
-    <div class="row">
-
-      <div class="col-lg-4 col-md-6">
-        <div class="contact-about">
-          <h3>Amoeba</h3>
-          <p>Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
-          <div class="social-links">
-            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6">
-        <div class="info">
-          <div>
-            <i class="bi bi-geo-alt"></i>
-            <p>Palawan State University<br>Tiniguiban Heights, Puerto Princesa City</p>
-          </div>
-
-          <div>
-            <i class="bi bi-envelope"></i>
-            <p>cs@psu.palawan.edu.ph</p>
-          </div>
-
-          <div>
-            <i class="bi bi-phone"></i>
-            <p>+1 5589 55488 55s</p>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="col-lg-5 col-md-12">
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-          <div class="form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-          </div>
-          <div class="form-group mt-3">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-          </div>
-          <div class="form-group mt-3">
-            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-          </div>
-          <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-          </div>
-          <div class="my-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your message has been sent. Thank you!</div>
-          </div>
-          <div class="text-center"><button type="submit">Send Message</button></div>
-        </form>
-      </div>
-
-    </div>
-
-  </div>
-</section><!-- End Contact Us Section -->
 
 {% endblock %}
 
