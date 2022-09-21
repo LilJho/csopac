@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['csopac.pythonanywhere.com','*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +45,18 @@ INSTALLED_APPS = [
     'thesis',
     'taggit',
 ]
+JAZZMIN_SETTINGS = {
+    "site_title": "CSOPAC",
+    "site_header": "CSOPAC",
+    "welcome_sign": "Welcome to CS Open Public Access Catalog",
+    "copyright": "Computer Studies Department",
+    "show_ui_builder": True, #allowed user to customized ui
+    # "site_logo": "imgs/dostlogo.jpg",
+}
+JAZZMIN_UI_TWEAKS = {
+    "theme": "cerulean",
+    # "dark_mode_theme": "united",
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
