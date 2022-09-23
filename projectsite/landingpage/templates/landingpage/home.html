@@ -5,9 +5,22 @@
 {% block content %}
 <!-- ======= Hero Section ======= -->
 <section id="hero">
+  
+    <div class="container">
+  <div class="row gy-4">
+    <div class="col-lg-4 col-md-4"></div>
+    <div class="col-lg-4 col-md-4">
+      <div class="member">
+        <img src="{% static 'img/cslogo.png' %}" style="display: block; margin-left: auto; margin-right: auto;" alt="" length="150" width="150">
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4"></div>
+  </div>
+</div>
   <div class="hero-container">
     <h1>Welcome to College of Sciences Online Public Access Catalog</h1>
-    <p style="color: white;">Search the {% if thesis_count != empty %}{{ thesis_count }} {% else %} 0 {% endif %} electronic theses and capstone projects contained in the csopac archive:</p>
+    <p style="color: white;">Search the {% if thesis_count != empty %}{{ thesis_count }} {% else %} 0 {% endif %}
+      electronic theses and capstone projects contained in the csopac archive:</p>
     <div class="col-lg-5 col-md-9">
       <form action="{% url 'ThesisList' %}" method="get">
         {% csrf_token %}
@@ -19,4 +32,3 @@
 <!-- #hero -->
 <br><br><br>
 {% endblock %}
-
