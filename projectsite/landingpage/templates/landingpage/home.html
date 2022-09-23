@@ -7,19 +7,16 @@
 <section id="hero">
   <div class="hero-container">
     <h1>Welcome to College of Sciences Online Public Access Catalog</h1>
-    Search the {% if thesis_count != empty %}{{ thesis_count }} {% else %} 0 {% endif %} electronic theses and capstone projects contained in the csopac archive:
+    <p style="color: white;">Search the {% if thesis_count != empty %}{{ thesis_count }} {% else %} 0 {% endif %} electronic theses and capstone projects contained in the csopac archive:</p>
     <div class="col-lg-5 col-md-9">
       <form action="{% url 'ThesisList' %}" method="get">
         {% csrf_token %}
         <input type="text" name="q" class="form-control" placeholder="Type something to start searching..." required>
-        <!-- <button type="submit">Search</button> -->
       </form>
     </div>
   </div>
 </section>
 <!-- #hero -->
 <br><br><br>
-
-
 {% endblock %}
 
