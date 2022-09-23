@@ -7,7 +7,7 @@ Installation Process
 4. Install dependencies in the requirements.txt <br>
 ```pip install -r requirements.txt```
 5. Create migrations then migrate.<br>
-```python manage.py makemigrations```
+```python manage.py makemigrations```<br>
 ```python manage.py migrate```
 6. Run the server.<br>
 ```python manage.py  runserver```
