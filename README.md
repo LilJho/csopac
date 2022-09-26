@@ -1,6 +1,10 @@
 # CSOPAC
+A simple web app that allows you to store theses and capstone projects. 
 
-Installation Process
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Installing
 1. Create virtual environment in local machine.
 2. Clone the repository inside the virtual machine.
 3. Activate the virtual environment.
@@ -10,5 +14,19 @@ Installation Process
 ```python manage.py makemigrations```<br>
 ```python manage.py migrate```
 6. Run the server.<br>
-```python manage.py  runserver```
+```python manage.py  runserver``` <br>
+
+## Deployment
+
+### Built with
+* Django - The webframework used
+* Sqlite3 - DBMS
+
+## Authors
+
+* Roy Cyril Dosado - Initial work
+* Kristine Joy V. Martinez
+* Jhonnel Garcia
+* Czarlette Rancap
+
 
